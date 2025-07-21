@@ -1,66 +1,128 @@
 @extends('_layouts.main')
 @section('body')
         
-<div id="container-grid" class="grid gap-4 p-4 transition-all duration-500 ease-in-out" 
-     style="grid-template-columns: 2fr 1fr 1fr;">
+<div id="container-grid" class="grid gap-2 md:gap-4 p-2 md:p-4 transition-all duration-500 ease-in-out min-h-[80vh]" 
+     style="grid-template-columns: repeat(3, 1fr);">
      
-    <div class="card bg-[#6B47ED] p-8 rounded-3xl cursor-pointer transition-all duration-500 active" 
+    <div class="card bg-[#6B47ED] p-4 md:p-8 rounded-2xl md:rounded-3xl cursor-pointer transition-all duration-500" 
          data-section="academy" onclick="expandCard(this)">
-        <div class="card-content grid grid-cols-2 gap-2">
-            <div class="text-content">
-                <span class="bg-[#4A2BBB] px-4 py-2 font-bold rounded-md">Loop Academy</span>
-                <h2 class="text-5xl font-bold pt-3">Cursos Loop Academy</h2>
-                <h3 class="pt-8"><span class="text-[#9AFFCF] font-bold text-xl">💫É aqui que você inicia sua jornada de aprendizado.💫<br></span><span class="font-semibold">Assista aulas, faça os exercícios, baixe os materiais de apoio e estude sempre que quiser!</span></h3>
-                <button class="text-[#6B47ED] mt-8 bg-white py-2 px-7 rounded-xl"><i class="fas fa-link"></i> Acessar Agora</button>
+        <div class="card-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="text-content">
+                    <!-- Header -->
+                    <div class="flex justify-start items-start mb-6">
+                        <span class="bg-[#4A2BBB] px-3 py-1 font-bold rounded-full text-xs">Fluency Academy</span>
+                    </div>
+                    
+                    <!-- Main title -->
+                    <h2 class="text-3xl font-bold mb-4 leading-tight">Cursos Fluency<br>Academy</h2>
+                    
+                    <!-- Description with emoji -->
+                    <h3 class="text-base mb-6 leading-relaxed">
+                        <span class="font-bold">✨ É aqui que você inicia sua jornada de aprendizado. ✨</span><br>
+                        <span class="text-white/90">Assista as aulas, faça os exercícios, baixe os materiais de apoio e estude sempre que quiser!</span>
+                    </h3>
+                    
+                    <!-- Action button -->
+                    <button class="bg-white text-[#6B47ED] font-semibold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all flex items-center space-x-2">
+                        <span>Acessar Agora</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Image content for desktop -->
+                <div class="image-content hidden lg:block">
+                    <img src="{{ $page->baseUrl }}/assets/images/courses_content.png" alt="Cursos" class="w-full h-auto object-contain">
+                </div>
             </div>
-            <div class="image-content">
-                <img src="{{ $page->baseUrl }}/assets/images/courses_content.png" alt="Cursos">
+            
+            <!-- Mobile illustration -->
+            <div class="illustration-area mt-8 lg:hidden">
+                <div class="relative">
+                    <img src="{{ $page->baseUrl }}/assets/images/courses_content.png" alt="Cursos" class="w-full h-auto object-contain rounded-lg">
+                </div>
             </div>
         </div>
-        <div class="card-collapsed hidden flex flex-col justify-center items-center h-full text-center"> 
-            <i class="fas fa-graduation-cap fa-3x text-white mb-4"></i>
-            <h2 class="text-xl font-bold">Academy</h2>
-            <h3 class="text-sm">Mais detalhes <i class="fas fa-plus text-white ml-2"></i></h3>
+        <div class="card-collapsed flex flex-col justify-center items-center h-full text-center">
+            <div class="flex flex-col justify-center items-center h-full text-center"> 
+                <i class="fas fa-graduation-cap fa-2x md:fa-3x text-white mb-2 md:mb-4"></i>
+                <h2 class="text-lg md:text-xl font-bold">Academy</h2>
+                <h3 class="text-xs md:text-sm">Mais detalhes <i class="fas fa-plus text-white ml-1 md:ml-2"></i></h3>
+            </div>
         </div>
     </div>
 
-    <div class="card bg-[#D93971] p-8 rounded-3xl cursor-pointer transition-all duration-500" 
+    <div class="card bg-[#D93971] p-4 md:p-8 rounded-2xl md:rounded-3xl cursor-pointer transition-all duration-500" 
          data-section="memhack" onclick="expandCard(this)">
-        <div class="card-content grid grid-cols-2 gap-2 hidden">
-            <div class="text-content">
-                <span class="bg-[#B82956] px-4 py-2 font-bold rounded-md">Memhack</span>
-                <h2 class="text-5xl font-bold pt-3">Loop Brain</h2>
-                <h3 class="pt-8"><span class="text-[#FFD700] font-bold text-xl">🧠 Memorize todo o conteúdo 🧠<br></span><span class="font-semibold">Nossa tecnologia de memorização exclusiva e simples e prática! Memorize cada detalhe e potencialize todo o seu estudo!</span></h3>
-                <button class="text-[#D93971] mt-8 bg-white py-2 px-7 rounded-xl"><i class="fas fa-brain"></i> Acessar Agora</button>
+        <div class="card-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="text-content">
+                    <span class="bg-[#B82956] px-3 py-1 font-bold rounded-full text-xs">Memhack</span>
+                    <h2 class="text-3xl font-bold mb-4 leading-tight">Loop Brain</h2>
+                    <h3 class="text-base mb-6 leading-relaxed">
+                        <span class="font-bold">🧠 Memorize todo o conteúdo 🧠</span><br>
+                        <span class="text-white/90">Nossa tecnologia de memorização exclusiva e simples e prática! Memorize cada detalhe e potencialize todo o seu estudo!</span>
+                    </h3>
+                    <button class="bg-white text-[#D93971] font-semibold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all flex items-center space-x-2">
+                        <span>Acessar Agora</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Image content -->
+                <div class="image-content hidden lg:block">
+                    <img src="{{ $page->baseUrl }}/assets/images/memorization_content.png" alt="Memhack" class="w-full h-auto object-contain">
+                </div>
             </div>
-            <div class="image-content">
-                <img src="{{ $page->baseUrl }}/assets/images/memorization_content.png" alt="Memhack">
+            
+            <!-- Mobile illustration -->
+            <div class="illustration-area mt-8 lg:hidden">
+                <div class="relative">
+                    <img src="{{ $page->baseUrl }}/assets/images/memorization_content.png" alt="Memhack" class="w-full h-auto object-contain rounded-lg">
+                </div>
             </div>
         </div>
         <div class="card-collapsed flex flex-col justify-center items-center h-full text-center"> 
-            <i class="fas fa-brain fa-3x text-white mb-4"></i>
-            <h2 class="text-xl font-bold">Memhack</h2>
-            <h3 class="text-sm">Mais detalhes <i class="fas fa-plus text-white ml-2"></i></h3>
+            <i class="fas fa-brain fa-2x md:fa-3x text-white mb-2 md:mb-4"></i>
+            <h2 class="text-lg md:text-xl font-bold">Memhack</h2>
+            <h3 class="text-xs md:text-sm">Mais detalhes <i class="fas fa-plus text-white ml-1 md:ml-2"></i></h3>
         </div>
     </div>
 
-    <div class="card bg-[#844CFC] p-8 rounded-3xl cursor-pointer transition-all duration-500" 
+    <div class="card bg-[#844CFC] p-4 md:p-8 rounded-2xl md:rounded-3xl cursor-pointer transition-all duration-500" 
          data-section="talks" onclick="expandCard(this)">
-        <div class="card-content grid grid-cols-2 gap-2 hidden">
-            <div class="text-content">
-                <span class="bg-[#6A3DD4] px-4 py-2 font-bold rounded-md">Talks</span>
-                <h2 class="text-5xl font-bold pt-3">Tech Talks</h2>
-                <h3 class="pt-8"><span class="text-[#FFB3E6] font-bold text-xl">🎤 Aprenda com especialistas 🎤<br></span><span class="font-semibold">Palestras e entrevistas com especialistas do setor tech. Fique por dentro de todas as novidades mais recentes e tendências!</span></h3>
-                <button class="text-[#844CFC] mt-8 bg-white py-2 px-7 rounded-xl"><i class="fas fa-microphone"></i> Acessar Agora</button>
+        <div class="card-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="text-content">
+                    <span class="bg-[#6A3DD4] px-3 py-1 font-bold rounded-full text-xs">Tech Talks</span>
+                    <h2 class="text-3xl font-bold mb-4 leading-tight">Tech Talks</h2>
+                    <h3 class="text-base mb-6 leading-relaxed">
+                        <span class="font-bold">🎤 Aprenda com especialistas 🎤</span><br>
+                        <span class="text-white/90">Palestras e entrevistas com especialistas do setor tech. Fique por dentro de todas as novidades mais recentes e tendências!</span>
+                    </h3>
+                    <button class="bg-white text-[#844CFC] font-semibold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all flex items-center space-x-2">
+                        <span>Acessar Agora</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Image content -->
+                <div class="image-content hidden lg:block">
+                    <img src="{{ $page->baseUrl }}/assets/images/talks_content.png" alt="Talks" class="w-full h-auto object-contain">
+                </div>
             </div>
-            <div class="image-content">
-                <img src="{{ $page->baseUrl }}/assets/images/talks_content.png" alt="Talks">
+            
+            <!-- Mobile illustration -->
+            <div class="illustration-area mt-8 lg:hidden">
+                <div class="relative">
+                    <img src="{{ $page->baseUrl }}/assets/images/talks_content.png" alt="Talks" class="w-full h-auto object-contain rounded-lg">
+                </div>
             </div>
         </div>
         <div class="card-collapsed flex flex-col justify-center items-center h-full text-center"> 
-            <i class="fas fa-microphone fa-3x text-white mb-4"></i>
-            <h2 class="text-xl font-bold">Talks</h2>
-            <h3 class="text-sm">Mais detalhes <i class="fas fa-plus text-white ml-2"></i></h3>
+            <i class="fas fa-microphone fa-2x md:fa-3x text-white mb-2 md:mb-4"></i>
+            <h2 class="text-lg md:text-xl font-bold">Talks</h2>
+            <h3 class="text-xs md:text-sm">Mais detalhes <i class="fas fa-plus text-white ml-1 md:ml-2"></i></h3>
         </div>
     </div>
 </div>
@@ -78,20 +140,46 @@ function expandCard(clickedCard) {
     // Add active class to clicked card
     clickedCard.classList.add('active');
     
-    // Update grid layout based on which card is active
-    switch(clickedSection) {
-        case 'academy':
-            container.style.gridTemplateColumns = '2fr 0.5fr 0.5fr';
-            bodybg.style.backgroundColor = '#4A2BBB';
-            break;
-        case 'memhack':
-            container.style.gridTemplateColumns = '0.5fr 2fr 0.5fr';
-            bodybg.style.backgroundColor = '#B82156';
-            break;
-        case 'talks':
-            container.style.gridTemplateColumns = '0.5fr 0.5fr 2fr';
-            bodybg.style.backgroundColor = '#5C31B6';
-            break;
+    // Check if we're on desktop (lg screens)
+    const isDesktop = window.innerWidth >= 1024;
+    
+    if (isDesktop) {
+        // Desktop layout: show 3 cards side by side with expansion
+        bodybg.style.transition = 'background-color 0.5s ease-in-out';
+        
+        switch(clickedSection) {
+            case 'academy':
+                container.style.gridTemplateColumns = '2fr 0.5fr 0.5fr';
+                bodybg.style.backgroundColor = '#4A2BBB';
+                break;
+            case 'memhack':
+                container.style.gridTemplateColumns = '0.5fr 2fr 0.5fr';
+                bodybg.style.backgroundColor = '#B82156';
+                break;
+            case 'talks':
+                container.style.gridTemplateColumns = '0.5fr 0.5fr 2fr';
+                bodybg.style.backgroundColor = '#5C31B6';
+                break;
+        }
+    } else {
+        // Mobile/tablet layout: stack cards vertically
+        container.style.gridTemplateColumns = 'repeat(1, 1fr)';
+        
+        // Add smooth transition for mobile
+        bodybg.style.transition = 'background-color 0.5s ease-in-out';
+        
+        // Change background color based on active card
+        switch(clickedSection) {
+            case 'academy':
+                bodybg.style.backgroundColor = '#4A2BBB';
+                break;
+            case 'memhack':
+                bodybg.style.backgroundColor = '#B82156';
+                break;
+            case 'talks':
+                bodybg.style.backgroundColor = '#5C31B6';
+                break;
+        }
     }
     
     // Show/hide content based on active state
@@ -101,13 +189,55 @@ function expandCard(clickedCard) {
         
         if (card.classList.contains('active')) {
             content.classList.remove('hidden');
-            collapsed.classList.add('hidden');
+            if (collapsed) collapsed.classList.add('hidden');
         } else {
             content.classList.add('hidden');
-            collapsed.classList.remove('hidden');
+            if (collapsed) collapsed.classList.remove('hidden');
         }
     });
 }
+
+// Handle window resize to adjust layout
+window.addEventListener('resize', () => {
+    const activeCard = document.querySelector('.card.active');
+    const container = document.getElementById('container-grid');
+    const isDesktop = window.innerWidth >= 1024;
+    
+    if (activeCard) {
+        expandCard(activeCard);
+    } else {
+        // No active card, set default layout
+        if (isDesktop) {
+            container.style.gridTemplateColumns = 'repeat(3, 1fr)';
+        } else {
+            container.style.gridTemplateColumns = 'repeat(1, 1fr)';
+        }
+    }
+});
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    // Start with no active card - all cards in collapsed state
+    const allCards = document.querySelectorAll('.card');
+    const container = document.getElementById('container-grid');
+    const isDesktop = window.innerWidth >= 1024;
+    
+    allCards.forEach(card => {
+        const content = card.querySelector('.card-content');
+        const collapsed = card.querySelector('.card-collapsed');
+        
+        content.classList.add('hidden');
+        collapsed.classList.remove('hidden');
+        card.classList.remove('active');
+    });
+    
+    // Set initial grid layout based on screen size
+    if (isDesktop) {
+        container.style.gridTemplateColumns = 'repeat(3, 1fr)';
+    } else {
+        container.style.gridTemplateColumns = 'repeat(1, 1fr)';
+    }
+});
 </script>
 
 @endsection
